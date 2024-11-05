@@ -11,7 +11,7 @@
 //Fetch the query from the GraphQL API strapi with autorization
 export async function fetchDocWithLocale(query:string, locale:string) {
     try {
-        var res = await fetch('http://localhost:1337/graphql', {
+        const res = await fetch( `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`, {
             method: 'POST',
             cache: 'no-store',
             headers: {
@@ -26,7 +26,7 @@ export async function fetchDocWithLocale(query:string, locale:string) {
                 }
             }),   
         });
-        var response = await res.json();
+        const response = await res.json();
         return response.data;
     } catch (error) {
         console.error(error)

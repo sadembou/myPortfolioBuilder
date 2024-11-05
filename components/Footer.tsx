@@ -14,14 +14,6 @@ const Footer = ({data}:{data:any}) => {
                     {heading} {' '}
                     <span className="text-orange-500"> {shortHeading} </span>
                 </h1>
-                {/*<p className="text-white-200 md:mt-10 my-5 text-center">Reach out to me today and let&apos;s discuss how I can achieve your goals.</p>
-                <a href="mailto:yann@tyril.fo">
-                    <MagicButton
-                        title="Let's get in touch"
-                        icon={<FaLocationArrow/>}
-                        position="right"
-                    />
-                </a>*/}
                 <Contact data={data} />
             </div>
             <div className="flex mt-16 lg:justify-between justify-center lg:flex-row flex-col gap-1 items-center">

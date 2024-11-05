@@ -2,7 +2,6 @@ import { PinContainer } from "./ui/3d-pin"
 import { FaLocationArrow } from "react-icons/fa"
 
 const RecentProjects = ({data}:{data:any}) => {
-    const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
     const contentMyProjects = data;
   return (
     <div id="projects" className="pt-20">
@@ -50,10 +49,9 @@ const RecentProjects = ({data}:{data:any}) => {
             {
                 (contentMyProjects["myProjects"] as Array<any>)?.length && (
                     (contentMyProjects["myProjects"] as Array<any>).map((project, index)=>{
-                        var imgUrl = project["thumbnail"]["url"];
-                        var media = `${rootUrl}${imgUrl}`
-                        var description = project["description"];
-                        var techStack = project["techStack"] as Array<{ name:string, Image:{ url:string} }>
+                        const media = project["thumbnail"]["url"];
+                        const description = project["description"];
+                        const techStack = project["techStack"] as Array<{ name:string, Image:{ url:string} }>
                         return (
                         <div key={index}
                             className="lg:min-h-[32.5rem] sm:h-[41rem] h-[32rem] sm:w-[570px] flex items-center justify-center w-[80vw]"
@@ -82,7 +80,7 @@ const RecentProjects = ({data}:{data:any}) => {
                                             return(
                                                 <div key={icon.name} className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-10 h-10 flex justify-center items-center" 
                                                     style={{transform: `translateX(-${5 * idx * 2}px)`}}>
-                                                    <img title={icon.name} src={`${rootUrl}${icon.Image.url}`} alt={icon.name} className="p-2"/>
+                                                    <img title={icon.name} src={icon.Image.url} alt={icon.name} className="p-2"/>
                                                 </div>
                                             )})
                                         }

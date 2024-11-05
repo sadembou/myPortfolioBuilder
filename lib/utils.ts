@@ -17,3 +17,6 @@ export type contactFormType = {
   success:string,
   failure:string
 }
+
+//export const rootURl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
+export const rootUrl = "";

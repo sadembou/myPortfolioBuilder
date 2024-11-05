@@ -16,6 +16,7 @@ import { getLocale } from "next-intl/server";
 export default async function Home() {
   const locale = await getLocale();
   const contentData = await fetchDocWithLocale(MyContent, locale);
+  console.log(contentData?.toString());
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
       <div className="absolute z-20 right-5 top-5">

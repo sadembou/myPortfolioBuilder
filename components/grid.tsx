@@ -19,7 +19,6 @@ interface gridItemType{
 
 const Grid = ({data}:{data:any}) => {
   const dataGridItems = data?.["myKnowHow"] as Array<gridItemType>;
-  const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
   return (
     <section id='about'>
         <BentoGrid>
@@ -43,10 +42,10 @@ const Grid = ({data}:{data:any}) => {
                 title={title}
                 description={description}
                 className={className}
-                img={img?.url && `${rootUrl}${img.url}`}
+                img={img?.url && img.url}
                 imgClassName={imgClassName}
                 titleClassName={titleClassName}
-                spareImg={ spareImg?.url && `${rootUrl}/${spareImg?.url}`}
+                spareImg={ spareImg?.url && spareImg?.url}
               />
             ))
           )}

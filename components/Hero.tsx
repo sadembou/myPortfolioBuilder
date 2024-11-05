@@ -14,7 +14,7 @@ interface heroSectionType{
 }
 const Hero = ({data}:{data:any}) => {
     const contentHero = data["HeroSection"] as heroSectionType;
-    const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
+    //const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
 
   return (
     <div className="pb-5 pt-36">
@@ -37,7 +37,7 @@ const Hero = ({data}:{data:any}) => {
         {Object.entries(contentHero).length && <div className="flex justify-center relative my-20 z-10">
             <div className=" max-sm:absolute max-sm:-top-60 items-center justify-center">
                 <img
-                    src= {`${rootUrl}/${contentHero.profilePhoto.url}` ?? "prophoto_nbg.png"} //"prophoto_nbg.png"
+                    src= {contentHero.profilePhoto.url} //"prophoto_nbg.png"
                     alt="alt"
                     className="w-[1000px] h-[500px] rounded-b-[500px] object-cover object-center"
                 />
@@ -78,4 +78,3 @@ const Hero = ({data}:{data:any}) => {
 }
 
 export default Hero
-  

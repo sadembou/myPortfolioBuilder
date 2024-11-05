@@ -1,6 +1,7 @@
 import React from 'react'
 import { Backend_skill, db_stack, Frontend_skill, Full_stack, Other_skill } from '@/data' 
 import SkillDataProvider from './ui/SkillDataProvider'
+import {rootUrl} from "@/lib/utils";
 
 interface skillType
 {
@@ -17,7 +18,7 @@ const Skills = ({data}:{data:any}) => {
     const dbStackData = (data["StackType"] as Array<any>).find((stackType)=>stackType["stackType"]==="db_stack")["stackList"] as Array<skillType>;
     const otherSkillData = (data["StackType"] as Array<any>).find((stackType)=>stackType["stackType"]==="other_skill")["stackList"] as Array<skillType>;
     
-    const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
+    //const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
     const defaultSize = data["imgSize"] as number || 65;
     return (
     <section id='skills' className='flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-8' style={{transform:"scale(0.9)"}}>
@@ -36,7 +37,7 @@ const Skills = ({data}:{data:any}) => {
                     <SkillDataProvider
                         key={index}
                         title={name}
-                        src={`${rootUrl}/${Image.url}`}
+                        src={Image.url}
                         index={index}
                         width={defaultSize}
                         height={defaultSize}
@@ -59,7 +60,7 @@ const Skills = ({data}:{data:any}) => {
                     <SkillDataProvider
                         key={index}
                         title={name}
-                        src={`${rootUrl}/${Image.url}`}
+                        src={Image.url}
                         index={index}
                         width={defaultSize}
                         height={defaultSize}
@@ -82,7 +83,7 @@ const Skills = ({data}:{data:any}) => {
                     <SkillDataProvider
                         key={index}
                         title={name}
-                        src={`${rootUrl}${Image.url}`}
+                        src={Image.url}
                         index={index}
                         width={defaultSize}
                         height={defaultSize}
@@ -105,7 +106,7 @@ const Skills = ({data}:{data:any}) => {
                     <SkillDataProvider
                         key={index}
                         title={name}
-                        src={`${rootUrl}${Image.url}`}
+                        src={Image.url}
                         index={index}
                         width={defaultSize}
                         height={defaultSize}
@@ -128,7 +129,7 @@ const Skills = ({data}:{data:any}) => {
                     <SkillDataProvider
                         key={index}
                         title={name}
-                        src={`${rootUrl}${Image.url}`}
+                        src={Image.url}
                         index={index}
                         width={defaultSize}
                         height={defaultSize}

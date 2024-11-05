@@ -17,13 +17,12 @@ interface companyType{
 }
 
 const Clients = ({data}:{data:any}) => {
-    const rootUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}`;
     const dataTestimonials = (data?.["testimonials"] as Array<testimonialType>)?.map(({ quote, name, title, img })=>{
         return{
             quote,
             name,
             title,
-            img:`${rootUrl}${img.url}`
+            img:img.url
         }
     });
     const dataCompanies = data?.["companies"] as Array<companyType>;
@@ -42,7 +41,7 @@ const Clients = ({data}:{data:any}) => {
                 speed="normal"
             />
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10 pt-10">
-                { dataCompanies?.length === 0 ? companies.map(({id, name, img, nameImg })=>(
+                { dataCompanies?.length === 0 ? companies.map(({id, name, img })=>(
                     <div key={id} className="flex md:max-w-60 max-w-32 gap-2">
                         <img
                             title={name}
@@ -61,7 +60,7 @@ const Clients = ({data}:{data:any}) => {
                         <div key={index} className="flex md:max-w-60 max-w-32 gap-2">
                             <img
                                 title={name}
-                                src={`${rootUrl}${img.url}`}
+                                src={img?.url && img.url}
                                 alt={name}
                                 //className="md:w-10 w-5"
                             />
