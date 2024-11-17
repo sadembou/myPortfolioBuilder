@@ -3,8 +3,19 @@ import "../../app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Kambsdev - Portfolio",
-  description: "I am you Full Stack Automation and Web developer",
+    title: "Mistral Loysnir - Kervisverkfrøðingur",
+    description: "Full Stack & PLC automatiónsforritari og KT-verkfrøðingur",
+    openGraph:  {
+        type: 'website',
+        siteName: 'Mistral Loysnir',
+        title: 'Kervisverkfrøðingur',
+        description: 'Full Stack & PLC automatiónsforritari og KT-verkfrøðingur',
+        images: [
+            {
+                url: 'https://res.cloudinary.com/dawkzelzc/image/upload/v1731416599/ldnr4zkz0ghmydvy8urg.png',
+            },
+        ],
+    }
 };
 
 export default async function LocaleLayout({

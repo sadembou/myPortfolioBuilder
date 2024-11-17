@@ -1,4 +1,5 @@
 'use client'
+import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -6,9 +7,10 @@ import React, { useEffect, useState } from 'react';
 export default function LanguageSwitcher({className}: {className?:string}) {
   const router = useRouter();
   const pathname = usePathname();
+  const lang = useLocale()
   //get local from pathname
-  const local = pathname.split('/')[1];
-  const [lang, setLang] = useState(local);
+  //const local = pathname.split('/')[1];
+  //const [lang, setLang] = useState(local);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const LANGUAGE_SELECTOR_ID = 'language-selector';
@@ -26,12 +28,11 @@ export default function LanguageSwitcher({className}: {className?:string}) {
       }
   }, []);
 
-  const handleLanguageChange = (language:string)=> {
-    
-    //setIsOpen(false);
-    setLang(language);
-    router.push(`/${language}`)
-};
+    const handleLanguageChange = (language:string)=> {
+        router.push(`/${language}`);
+        window.location.href=`/${language}`;
+
+    };
   
   return (
     <React.Fragment>
@@ -76,7 +77,7 @@ export default function LanguageSwitcher({className}: {className?:string}) {
               role="menuitem"
               >
                 <img src={`${language}_flag.png`} alt={language} width={25} height={25} />
-                <span className="ml-2">{language}</span>
+                <span className="ml-2">{language.toUpperCase()}</span>
               </button>
             )
           }) }

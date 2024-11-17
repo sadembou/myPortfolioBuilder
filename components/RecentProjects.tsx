@@ -1,3 +1,4 @@
+import { RiForbidLine } from "react-icons/ri";
 import { PinContainer } from "./ui/3d-pin"
 import { FaLocationArrow } from "react-icons/fa"
 
@@ -52,6 +53,7 @@ const RecentProjects = ({data}:{data:any}) => {
                         const media = project["thumbnail"]["url"];
                         const description = project["description"];
                         const techStack = project["techStack"] as Array<{ name:string, Image:{ url:string} }>
+                        const isLive = project["isLive"] === true;
                         return (
                         <div key={index}
                             className="lg:min-h-[32.5rem] sm:h-[41rem] h-[32rem] sm:w-[570px] flex items-center justify-center w-[80vw]"
@@ -59,7 +61,7 @@ const RecentProjects = ({data}:{data:any}) => {
                             <PinContainer title={project["link"]} href={project["link"]}>
                                 <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden h-[30vh] lg:h-[30vh] mb-10">
                                     <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162D]">
-                                        <img src="bg.png" alt="bg-img"/>
+                                        <img src="/bg.png" alt="/bg-img"/>
                                     </div>
                                     <img 
                                         src={media} 
@@ -86,17 +88,22 @@ const RecentProjects = ({data}:{data:any}) => {
                                         }
                                     </div>
                                     <div className="flex justify-center items-center">
-                                        <p className="flex lg:text-xl md:text-xs text-sm text-purple">Live site</p>
-                                        <FaLocationArrow className=" ms-3" color="#CBACE9"/>
+                                        <p className="flex lg:text-xl md:text-xs text-sm text-purple"> {isLive ? "Live" : ""} </p>
+                                        {isLive ? (
+                                            <FaLocationArrow className=" ms-3" color="#CBACE9"/>
+                                        ) : (
+                                            <RiForbidLine className=" ms-3" color="#FF0000"/>
+                                        )}
                                     </div>
                                 </div>
                             </PinContainer>
                         </div>
-                    )})
+                        )
+                    })
                 )
             }
         </div>
-        
+
     </div>
   )
 }

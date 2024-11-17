@@ -427,6 +427,11 @@ export const navItems = [
       link:"https://github.com/sadembou"
     },
     {
+      id: 2,
+      img: "/web.png",
+      link:"https://mistralloysnir.com/"
+    },
+    {
       id: 3,
       img: "/link.svg",
       link:"https://www.linkedin.com/in/yann-boris-sadembou-646b27a5/"
